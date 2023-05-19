@@ -22,6 +22,4 @@ jobs:
     steps:
       - uses: secondlife/action-autobuild-release@v2
         with:
-          # false causes 'creds=github' to be added to generated
-          # 'autobuild installables edit' commands
-          public: false
+          public: true
