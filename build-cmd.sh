@@ -31,7 +31,6 @@ source_environment_tempfile="$stage/source_environment.sh"
 
 XXHASH_SOURCE_DIR="xxHash-release"
 
-# version will end with something like '160 /* 0.16 */'
 version="0.8.1"
 
 build=${AUTOBUILD_BUILD_ID:=0}
@@ -41,8 +40,6 @@ pushd "$XXHASH_SOURCE_DIR"
     case "$AUTOBUILD_PLATFORM" in
 
         windows*)
-            # looks like we do not need a full build, just the massive header
-
             mkdir -p "$stage/include/xxhash"
             cp -a xxhash.h "$stage/include/xxhash/xxhash.h"
         ;;
@@ -60,6 +57,3 @@ pushd "$XXHASH_SOURCE_DIR"
     mkdir -p "$stage/LICENSES"
     cp -a LICENSE "$stage/LICENSES/xxhash.txt"
 popd
-
-#mkdir -p "$stage"/docs/xxhash/
-#cp -a README.Linden "$stage"/docs/xxhash/
