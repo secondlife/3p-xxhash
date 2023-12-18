@@ -31,10 +31,14 @@ source_environment_tempfile="$stage/source_environment.sh"
 
 XXHASH_SOURCE_DIR="xxHash-release"
 
-version="0.8.1"
+line1="$(head -n 1 "$top/xxHash-release/cli/xxhsum.1")"
+if [[ "$line1" =~ '"xxhsum '([[:digit:]]+\.[[:digit:]]+\.[[:digit:]])'"' ]]
+then version="${BASH_REMATCH[1]}"
+else version="0.8.1"
+fi
 
 build=${AUTOBUILD_BUILD_ID:=0}
-echo "${version}.${build}" > "${stage}/VERSION.txt"
+echo "${version}-${build}" > "${stage}/VERSION.txt"
 
 pushd "$XXHASH_SOURCE_DIR"
     case "$AUTOBUILD_PLATFORM" in
