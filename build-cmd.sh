@@ -41,23 +41,8 @@ build=${AUTOBUILD_BUILD_ID:=0}
 echo "${version}-${build}" > "${stage}/VERSION.txt"
 
 pushd "$XXHASH_SOURCE_DIR"
-    case "$AUTOBUILD_PLATFORM" in
-
-        windows*)
-            mkdir -p "$stage/include/xxhash"
-            cp -a xxhash.h "$stage/include/xxhash/xxhash.h"
-        ;;
-
-        darwin*)
-            mkdir -p "$stage/include/xxhash"
-            cp -a xxhash.h "$stage/include/xxhash/xxhash.h"
-        ;;
-
-        linux*)
-            mkdir -p "$stage/include/xxhash"
-            cp -a xxhash.h "$stage/include/xxhash/xxhash.h"
-        ;;
-    esac
+    mkdir -p "$stage/include/xxhash"
+    cp -a xxhash.h "$stage/include/xxhash/xxhash.h"
     mkdir -p "$stage/LICENSES"
     cp -a LICENSE "$stage/LICENSES/xxhash.txt"
 popd
