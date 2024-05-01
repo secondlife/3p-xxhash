@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: secondlife/action-autobuild@v3
+      - uses: secondlife/action-autobuild@v4
         with:
           platform: common
       - uses: secondlife/action-autobuild-release@v3
