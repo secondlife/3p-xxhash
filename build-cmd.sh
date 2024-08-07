@@ -29,9 +29,9 @@ source_environment_tempfile="$stage/source_environment.sh"
 "$autobuild" source_environment > "$source_environment_tempfile"
 . "$source_environment_tempfile"
 
-XXHASH_SOURCE_DIR="xxHash-release"
+XXHASH_SOURCE_DIR="$top/xxHash"
 
-line1="$(head -n 1 "$top/xxHash-release/cli/xxhsum.1")"
+line1="$(head -n 1 "$XXHASH_SOURCE_DIR/cli/xxhsum.1")"
 if [[ "$line1" =~ '"xxhsum '([[:digit:]]+\.[[:digit:]]+\.[[:digit:]])'"' ]]
 then version="${BASH_REMATCH[1]}"
 else version="0.8.1"
